@@ -10,18 +10,34 @@ import {
   Button,
 } from 'react-native';
 import { WebBrowser } from 'expo';
-import {NavigatorIOS } from 'react-native'
-
+import {NavigatorIOS } from 'react-native';
+import OneScreen from '../screens/onboarding/One.js';
+import TwoScreen from '../screens/onboarding/Two.js';
+import ThreeScreen from '../screens/onboarding/Three.js';
+import FourScreen from '../screens/onboarding/Four.js';
+import FiveScreen from '../screens/onboarding/Five.js';
+import SixScreen from '../screens/onboarding/Six.js';
+import WelcomeScreen from '../screens/onboarding/Welcome.js';
 import { MonoText } from '../components/StyledText';
+import {
+  createStackNavigator,
+} from 'react-navigation';
 
-export default class HomeScreen extends React.Component {
+const App = createStackNavigator({
+  One: { screen: OneScreen},
+  Two: { screen: TwoScreen},
+  Three: {screen: ThreeScreen},
+  Four: {screen: FourScreen},
+  Five: {screen: FiveScreen},
+  Six: {screen: SixScreen},
+  Welcome: {screen: WelcomeScreen}
+});
 
-  static navigationOptions = {
-    header: null,
-  };
+export default App;
+class One extends React.Component {
 
   render() {
-//    const { navigate } = this.props.navigation;
+    const { navigate } = this.props.navigation;
     return (
 
       <View style={styles.container}>
@@ -35,8 +51,7 @@ export default class HomeScreen extends React.Component {
           <Button
             title="Male"
             color="white"
-            onPress={() =>
-              navigate('Two', { gender: 'Male' })
+            onPress={() => this.props.navigation.navigate('Two')
             }
             />
         </View>
@@ -84,31 +99,31 @@ const styles = StyleSheet.create({
     marginBottom: 50,
   },
   button: {
-    height:45,
-    padding:5,
+    height:48,
+    padding:6,
     flexDirection:'column',
     alignItems:'center',
     backgroundColor:'#adefde',
     marginBottom: 10,
-    marginHorizontal: 20,
+    marginHorizontal: 25,
   },
   button1: {
-    height:45,
-    padding:5,
+    height:48,
+    padding:6,
     flexDirection:'column',
     alignItems:'center',
     backgroundColor:'#ffb6a4',
     marginBottom: 10,
-    marginHorizontal: 20,
+    marginHorizontal: 25,
   },
   button2: {
-    height:45,
-    padding:5,
+    height:48,
+    padding:6,
     flexDirection:'column',
     alignItems:'center',
     backgroundColor:'#ffd2c5',
     marginBottom: 10,
-    marginHorizontal: 20,
+    marginHorizontal: 25,
   },
   getStartedContainer: {
     alignItems: 'center',
