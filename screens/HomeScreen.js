@@ -21,100 +21,44 @@ export default class HomeScreen extends React.Component {
   };
 
   render() {
-    const { navigate } = this.props.navigation;
+//    const { navigate } = this.props.navigation;
     return (
 
       <View style={styles.container}>
-        <View>
-          <Image source={require('../assets/images/one.png')} />
-          <Text>What is your gender?</Text>
+
+        <Image
+          source={require('../assets/images/one.png')}
+          style={styles.welcomeImage}
+        />
+        <Text style = {styles.question}>What is your gender?</Text>
+        <View style ={styles.button}>
           <Button
             title="Male"
+            color="white"
             onPress={() =>
               navigate('Two', { gender: 'Male' })
             }
-          />
+            />
+        </View>
+        <View style ={styles.button1}>
           <Button
             title="Female"
+            color="white"
             onPress={() =>
               navigate('Two', { gender: 'Female' })
             }
-          />
+            />
+        </View>
+        <View style ={styles.button2}>
           <Button
             title="Other"
+            color="white"
             onPress={() =>
               navigate('Two', { gender: 'Other' })
             }
-          />
-        </View>
-
-        <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
-          <View style={styles.welcomeContainer}>
-            <Image
-              source={
-                __DEV__
-                  ? require('../assets/images/one.png')
-                  : require('../assets/images/one.png')
-              }
-              style={styles.welcomeImage}
             />
-          </View>
-
-          <View style={styles.getStartedContainer}>
-            {this._maybeRenderDevelopmentModeWarning()}
-
-            <Text style={styles.getStartedText}>Get started by opening</Text>
-
-            <View style={[styles.codeHighlightContainer, styles.homeScreenFilename]}>
-              <MonoText style={styles.codeHighlightText}>screens/HomeScreen.js</MonoText>
-            </View>
-
-            <Text style={styles.getStartedText}>
-              Change this text and your app will automatically reload.
-            </Text>
-          </View>
-
-          <View style={styles.helpContainer}>
-            <TouchableOpacity onPress={this._handleHelpPress} style={styles.helpLink}>
-              <Text style={styles.helpLinkText}>Help, it didn’t automatically reload!</Text>
-            </TouchableOpacity>
-          </View>
-        </ScrollView>
-
+        </View>
       </View>
-    );
-  }
-
-  _maybeRenderDevelopmentModeWarning() {
-    if (__DEV__) {
-      const learnMoreButton = (
-        <Text onPress={this._handleLearnMorePress} style={styles.helpLinkText}>
-          Learn more
-        </Text>
-      );
-
-      return (
-        <Text style={styles.developmentModeText}>
-          Development mode is enabled, your app will be slower but you can use useful development
-          tools. {learnMoreButton}
-        </Text>
-      );
-    } else {
-      return (
-        <Text style={styles.developmentModeText}>
-          You are not in development mode, your app will run at full speed.
-        </Text>
-      );
-    }
-  }
-
-  _handleLearnMorePress = () => {
-    WebBrowser.openBrowserAsync('https://docs.expo.io/versions/latest/guides/development-mode');
-  };
-
-  _handleHelpPress = () => {
-    WebBrowser.openBrowserAsync(
-      'https://docs.expo.io/versions/latest/guides/up-and-running.html#can-t-see-your-changes'
     );
   };
 }
@@ -124,61 +68,50 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
   },
-  developmentModeText: {
-    marginBottom: 20,
-    color: 'rgba(0,0,0,0.4)',
-    fontSize: 14,
-    lineHeight: 19,
-    textAlign: 'center',
-  },
-  contentContainer: {
-    paddingTop: 30,
-  },
-  welcomeContainer: {
-    alignItems: 'center',
-    marginTop: 10,
-    marginBottom: 20,
-  },
   welcomeImage: {
-    width: 100,
+    flex: 0.9,
+    width: 175,
     height: 80,
     resizeMode: 'contain',
-    marginTop: 3,
-    marginLeft: -10,
+    alignItems: 'center',
+    marginTop: 40,
+    marginLeft: 100,
+  },
+  question: {
+    flexDirection: 'column',
+    textAlign: 'center',
+    fontSize: 20,
+    marginBottom: 50,
+  },
+  button: {
+    height:45,
+    padding:5,
+    flexDirection:'column',
+    alignItems:'center',
+    backgroundColor:'#adefde',
+    marginBottom: 10,
+    marginHorizontal: 20,
+  },
+  button1: {
+    height:45,
+    padding:5,
+    flexDirection:'column',
+    alignItems:'center',
+    backgroundColor:'#ffb6a4',
+    marginBottom: 10,
+    marginHorizontal: 20,
+  },
+  button2: {
+    height:45,
+    padding:5,
+    flexDirection:'column',
+    alignItems:'center',
+    backgroundColor:'#ffd2c5',
+    marginBottom: 10,
+    marginHorizontal: 20,
   },
   getStartedContainer: {
     alignItems: 'center',
     marginHorizontal: 50,
-  },
-  homeScreenFilename: {
-    marginVertical: 7,
-  },
-  codeHighlightText: {
-    color: 'rgba(96,100,109, 0.8)',
-  },
-  codeHighlightContainer: {
-    backgroundColor: 'rgba(0,0,0,0.05)',
-    borderRadius: 3,
-    paddingHorizontal: 4,
-  },
-  getStartedText: {
-    fontSize: 17,
-    color: 'rgba(96,100,109, 1)',
-    lineHeight: 24,
-    textAlign: 'center',
-  },
-  navigationFilename: {
-    marginTop: 5,
-  },
-  helpContainer: {
-    marginTop: 15,
-    alignItems: 'center',
-  },
-  helpLink: {
-    paddingVertical: 15,
-  },
-  helpLinkText: {
-    fontSize: 14,
-    color: '#2e78b7',
   },
 });

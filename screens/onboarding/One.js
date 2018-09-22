@@ -15,7 +15,7 @@ export default class One extends React.Component {
     return (
       <View style={styles.container}>
         <Image source={require('../assets/images/one.png')} />
-        <Text>What is your gender?</Text>
+        <Text style = {styles.question}>What is your gender?</Text>
         alignItems: 'center',
         <Button
           title="Male"
@@ -47,7 +47,10 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
   },
-});
+  question: {
+    flexDirection: 'column'
+    textAlign: 'center'
+  },
 
   tabBarInfoContainer: {
     position: 'absolute',
@@ -62,4 +65,5 @@ const styles = StyleSheet.create({
     fontSize: 17,
     color: 'rgba(96,100,109, 1)',
     textAlign: 'center',
-  }
+  },
+};
