@@ -1,6 +1,7 @@
 import React from 'react';
 import { ScrollView, StyleSheet } from 'react-native';
 import { ExpoLinksView } from '@expo/samples';
+import { Calendar, CalendarList, Agenda } from 'react-native-calendars';
 
 export default class MeScreen extends React.Component {
   static navigationOptions = {
