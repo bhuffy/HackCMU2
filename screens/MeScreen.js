@@ -5,8 +5,12 @@ import { Calendar, CalendarList, Agenda } from 'react-native-calendars';
 
 export default class MeScreen extends React.Component {
   static navigationOptions = {
-    title: 'Links',
-  };
+    title: 'My Data',
+  }
+
+  static navigatorStyle = {
+      tabBarHidden: true,
+    };
 
   render() {
     return (
