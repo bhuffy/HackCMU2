@@ -1,11 +1,14 @@
 import React from 'react';
 import { ExpoLinksView } from '@expo/samples';
+import AppNavigator from '../navigation/AppNavigator';
+import HomeScreen from './HomeScreen';
 import {
   View,
   Text,
   ScrollView,
   StyleSheet,
-  Button
+  Button,
+  Image
 } from "react-native";
 
 export default class LogInScreen extends React.Component {
@@ -23,7 +26,8 @@ export default class LogInScreen extends React.Component {
           <Button
             title="Log In"
             onPress={() =>
-              navigate('One', { loggedin: 'Yes' })
+              <AppNavigator />,
+              navigate('HomeScreen', { loggedin: 'Yes' })
             }
           />
           <Button

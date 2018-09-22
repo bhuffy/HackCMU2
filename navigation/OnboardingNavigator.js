@@ -18,26 +18,9 @@ export default class code extends React.Component {
   }
 }
 
-/*
-export default class code extends React.Component {
-  render(){
-    return(
-      <NavigatorIOS
-        initialRoute={{
-          component: LogInScreen,
-          title: 'code',
-          
-        }}
-        style = {{flex: 1}}
-      />
-    );
-  }
-} 
-*/
-
 
 const OnboardingStack = createStackNavigator({
-  LogIn: {
+  Login: {
     screen: LogInScreen,
   }
 })
